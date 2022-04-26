@@ -1,0 +1,29 @@
+body {
+    background-color: #f8f7ff;
+    justify-content: center;
+}
+#welcome{
+    color: #9381ff;
+    font-family: 'Water Brush', cursive;
+}
+#welcome:hover{
+    color: #FA824C;
+    font-family: 'Water Brush', cursive;
+}
+.name{
+     color: #AF1B3F;
+     font-size: 24px;
+     font-family: 'Tapestry', cursive;
+     
+}
+.dummyText{
+          color: #050609;
+          font-size: 20px;
+          font-family: 'Cinzel', serif;
+}
+img{
+    height: 400px;
+}
+img:hover{
+    height: 450px;
+}
