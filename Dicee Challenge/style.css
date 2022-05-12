@@ -8,22 +8,28 @@ body {
     color: aqua;
 }
 
-.container {
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
 h1 {
     font: 6rem 'Lobster', cursive;
     padding: 3rem;
     text-align: center;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.dice {
+    margin: 0 10vh;
+}
+
+
 h3 {
     font: 2rem 'Indie Flower', cursive;
 }
 
-h4 {
-    display: block;
+h2 {
+    text-align: center;
+    margin: 10vh;
 }
