@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #393E46;
+    color: aqua;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+h1 {
+    font: 6rem 'Lobster', cursive;
+    padding: 3rem;
+    text-align: center;
+}
+
+h3 {
+    font: 2rem 'Indie Flower', cursive;
+}
+
+h4 {
+    display: block;
+}
