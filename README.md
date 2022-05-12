@@ -5,3 +5,7 @@ Still learning....
 
 See live [here](https://manish-xyz.github.io)
 
+Drum kit [live](https://manish-xyz.github.io/Drum%20Kit/index.html)
+
+Dice Challange [live](https://manish-xyz.github.io/Dicee Challenge/index.html)
+
