@@ -9,3 +9,7 @@ Drum kit [live](https://manish-xyz.github.io/Drum%20Kit/index.html)
 
 Dice Challange [live](https://manish-xyz.github.io/Dicee%20Challenge/index.html)
 
+Tic Tac Toe [live](https://manish-xyz.github.io/TicTacToe/index.html)
+
+
+
