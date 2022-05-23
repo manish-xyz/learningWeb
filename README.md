@@ -9,7 +9,7 @@ Drum kit [live](https://manish-xyz.github.io/Drum%20Kit/index.html)
 
 Dice Challange [live](https://manish-xyz.github.io/Dicee%20Challenge/index.html)
 
-Rock Paper Scissors[live](https://manish-xyz.github.io/TicTacToe/index.html)
+Rock Paper Scissors[live](https://manish-xyz.github.io/Stone_Papers_Scissors/index.html)
 
 
 
