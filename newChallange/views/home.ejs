@@ -1,0 +1,12 @@
+<%- include ('partials/header.ejs') %> 
+ <h1> Home </h1>
+ <p> <%= homeContent %>  </p>
+<% blogs.forEach(function(element) {%> 
+<h3> <strong> <%= element.title %> </strong>  </h3> 
+<% if (element.post.length > 100) { %> 
+ <p> <%= element.post.substr(0, 100) %> <a href="/posts/<%= element.title %>">Read more</a> </p> 
+<% } else { %>
+<p> <%= element.post%></p>
+<% }})%> 
+
+ <%- include ('partials/footer.ejs') %> 
