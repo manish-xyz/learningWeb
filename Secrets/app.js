@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const app = express();
 const mongoose = require('mongoose');
-const encrypter = require('mongoose-encryption');
+const bcrypt = require('bcrypt');
+const md5 = require('md5');
+const saltround = 10;
 
 mongoose.connect('mongodb://localhost:27017/usersDB');
 
@@ -18,8 +20,6 @@ const userSchema = new mongoose.Schema({
     email: 'string',
     password: 'string'
 });
-
-userSchema.plugin(encrypter, {secret: process.env.STR, encryptedFields: ["password"] });
 
 const User = mongoose.model('User', userSchema);
 
@@ -45,55 +45,61 @@ app.get('/submit', (req, res) => {
 
 app.post('/register', (req, res) => {
 
-    const email = req.body.username;
-    const password = req.body.password;
-    
-    User.findOne({ email: email}, (err, user) => {
-        if (!err){
-            if (!user){
-                const user = new User({
-                    email: email,
-                    password: password,
-                });
+    bcrypt.hash(req.body.password, saltround, (err, data) => {
 
-                user.save();
-                res.redirect('/')
+        const email = req.body.username;
+        const password = data;
+
+        User.findOne({ email: email }, (err, user) => {
+            if (!err) {
+                if (!user) {
+
+                    const user = new User({
+                        email: email,
+                        password: password,
+                    });
+
+                    user.save();
+                    res.redirect('/')
+                }
+                else {
+                    console.log('User already exists');
+                    res.redirect('/login');
+                }
             }
             else {
-                console.log('User already exists');
-                res.redirect('/login');
+                console.log('error');
             }
-        }
-       else {
-           console.log('error');
-       }
+        });
+
     });
-    });
+});
 
 app.post('/login', (req, res) => {
 
     const email = req.body.username;
     const password = req.body.password;
 
-    User.findOne( {email: email}, (err, user) => {
-        if (!err){
-            if (!user){
-                res.render('register')
-            }
-            else if(user.password === password){
-                res.redirect('/secrets');
+    User.findOne({ email: email }, (err, user) => {
+        if (!err) {
+            if (user) {
+                bcrypt.compare(password, user.password, (err, result) => {
+                    if (result === true) {
+                        res.render('secrets');
+                    }
+                })
             }
             else {
                 res.redirect('/login');
             }
         }
-       else {
-           console.log('error');
-       }
+        else {
+            console.log('error');
+        }
     });
 });
 
-app.listen( PORT, () => {
+app.listen(PORT, () => {
 
-    console.log( PORT);
+    console.log(PORT);
 });
